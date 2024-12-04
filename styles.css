@@ -1,0 +1,352 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color, #ffffff);
+  color: var(--text-color, #000000);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--header-background, #0078d7);
+  color: var(--header-color, #ffffff);
+}
+
+.logo img {
+  height: 50px;
+  transition: transform 0.3s ease; /* Suaviza a transição */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--header-color, #ffffff);
+  font-weight: bold;
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+}
+
+nav a:hover {
+  color: var(--highlight-color, #ff9100); /* Cor do hover dos links */
+}
+
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--header-color, #ffffff);
+  position: fixed; /* Fixa o botão no topo */
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Seção principal */
+main {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+.hero, .about-content, .hobbies-content, .contact-content {
+  text-align: center;
+}
+
+.about-boxes .box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.about-boxes .box.reverse {
+  flex-direction: row-reverse;
+}
+
+.box-image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--header-background, #0078d7);
+  color: var(--header-color, #ffffff);
+}
+
+/* Galeria de imagens */
+.image-gallery {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Permite que as imagens fiquem em várias linhas */
+  justify-content: center;
+}
+
+.image-gallery img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05); /* Aumenta o tamanho da imagem ao passar o mouse */
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .image-gallery img {
+    max-width: 150px; /* Reduz o tamanho máximo das imagens em telas menores */
+  }
+}
+
+/* Tema escuro */
+:root.dark-mode {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --header-background: #1f1f1f;
+  --header-color: #f1f1f1;
+}
+
+body.dark-mode {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark-mode header {
+  background-color: #1A1A1A;
+}
+
+body.dark-mode .theme-btn {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+body.dark-mode .hero {
+  background-color: #333;
+}
+
+body.dark-mode .text-box {
+  background-color: #333;
+  color: #ffffff;
+}
+
+body.dark-mode footer {
+  background-color: #1A1A1A;
+}
+
+body.dark-mode nav a {
+  color: #fff;
+}
+
+body.dark-mode nav a:hover {
+  color: #ff9100;
+}
+
+/* Configuração de um painel mais adequado */
+#theme-toggle-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+#theme-toggle {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#theme-toggle:hover {
+  background-color: var(--box-hover-color);
+  transform: scale(1.1);
+}
+
+/* Estilo das caixas de texto */
+.box-text {
+  background-color: var(--box-bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--highlight-color);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s, border 0.3s;
+}
+
+.box-text:hover {
+  background-color: var(--box-hover-color);
+  transform: scale(1.05);
+}
+
+h2 {
+  margin: 0 0 10px;
+  color: var(--highlight-color);
+  transition: color 0.3s;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--highlight-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--box-hover-color);
+}
+
+/* Logo interativo */
+.logo img:hover {
+  transform: rotate(360deg);
+  cursor: pointer;
+}
+
+/* Variáveis de cores */
+:root {
+  --color-light-blue: #8ECAE6;
+  --color-medium-blue: #219EBC;
+  --color-dark-blue: #023047;
+  --color-yellow: #FFB703;
+  --color-orange: #FB8500;
+
+  /* Tema claro */
+  --bg-color: var(--color-light-blue);
+  --text-color: var(--color-dark-blue);
+  --highlight-color: var(--color-yellow);
+  --box-bg-color: var(--color-medium-blue);
+  --box-hover-color: var(--color-orange);
+}
+
+.dark-theme {
+  /* Tema escuro */
+  --bg-color: var(--color-dark-blue);
+  --text-color: var(--color-light-blue);
+  --highlight-color: var(--color-orange);
+  --box-bg-color: var(--color-yellow);
+  --box-hover-color: var(--color-medium-blue);
+}
+/* Limitar o tamanho das imagens na seção 'sobre' */
+.about-boxes .box img {
+  max-width: 100%; /* Garantir que as imagens não ultrapassem o container */
+  width: 300px; /* Definir uma largura fixa para as imagens */
+  height: auto; /* Manter a proporção */
+  object-fit: cover; /* Garantir que as imagens se ajustem ao tamanho sem distorção */
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+  .about-boxes .box img {
+    width: 200px; /* Reduz o tamanho das imagens para dispositivos menores */
+  }
+}
+/* Estilo para a cena de abertura */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Fundo preto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que fique acima de tudo */
+}
+
+.splash-screen img {
+  width: 150px; /* Ajuste o tamanho do logo */
+  height: auto;
+  animation: fadeOut 1s ease-out 2.5s forwards; /* Desaparece após 2.5 segundos */
+  opacity: 1;
+}
+
+/* Animação de fade out */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+/* Estilo geral para a página hobbies */
+.hobbies-content {
+  padding: 20px; /* Espaçamento ao redor de todo o conteúdo */
+}
+
+/* Aumentar o espaço entre os títulos e os textos */
+.hobby h3 {
+  margin-bottom: 20px; /* Aumenta o espaço abaixo dos títulos */
+}
+
+/* Aumentar o espaço entre os parágrafos e as setas */
+.hobby p {
+  margin-bottom: 30px; /* Aumenta o espaço entre o texto e a seta */
+}
+
+/* Estilo das setas (icones) */
+.arrow-down {
+  text-align: center;
+  margin-bottom: 40px; /* Aumenta o espaço entre as setas e as imagens */
+}
+
+/* Aumentar o espaço entre as imagens e o resto do conteúdo */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px; /* Aumenta o espaço entre as imagens */
+  margin-bottom: 40px; /* Aumenta o espaço abaixo das imagens */
+}
+
+/* Estilo das imagens na galeria */
+.image-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Para um toque mais moderno nas imagens */
+}
+/* Selecionar as primeiras 5 imagens de cada seção de hobbies */
+.hobbies-content .image-gallery img:nth-child(-n+5) {
+  width: 100%;
+  height: auto; /* Ajuste para manter a proporção */
+  object-fit: cover; /* Isso vai garantir que as imagens não fiquem distorcidas */
+}
+
+/* Garantir que as imagens da galeria não ultrapassem os limites da galeria */
+.hobbies-content .image-gallery {
+  display: flex;
+  gap: 10px; /* Espaço entre as imagens */
+  justify-content: center; /* Alinhar as imagens ao centro */
+  flex-wrap: wrap; /* Deixa as imagens se ajustarem se necessário */
+}
+
